@@ -7,15 +7,18 @@ var leftBorder = 0;
 var rightBorder = window.innerWidth - walker.offsetWidth;
 var currentX = rightBorder;
 // Have the stick figure start at the right border and start walking left
-walker.style.right = rightBorder + 'px';
+walker.style.left = rightBorder + 'px';
 // var walkLeft = walkerPosition + '20px'
 
-setInterval(update, 100)
+setInterval(update, 50)
 function update() {
   currentX = currentX - 10;
   if(currentX <= leftBorder){
-    currentX = 0;
-    
+    // currentX = 0
+    walker.classList.toggle('flip');
+    currentX = currentX + 10
+
+
   }
   walker.style.left = currentX + 'px';
 }
